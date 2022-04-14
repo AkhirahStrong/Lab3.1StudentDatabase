@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\AkhirahStrong\Desktop\BootCamp\Projects\Lab3.1StudentDatabase\.metadata\.plugins\org.eclipse.jdt.core
+963432481.index
+3877261340.index
+1865797976.index
