@@ -1,0 +1,161 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class StudentDatabase {
+
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+		
+		//Calling methods and creating objects
+		String[] studentN = studentName();
+		String[] studentC = studentCity();
+		int[] studentG = studentGrade();
+		
+		
+		//Global variables
+		String studentInfo = "";
+		String yesNo = "";
+		int studentPick;
+		
+		
+		//Providing user with student information
+		System.out.println("**** Student Database****\r\n"
+				+ "1.  Jackie Brown \r\n"
+				+ "2.  James Smith\r\n"
+				+ "3.  Paul Dunbar \r\n"
+				+ "4.  Chuck Berry \r\n"
+				+ "5.  Amy Poehler");
+		
+		System.out.println("\n");
+		
+		
+		
+		
+		//Prompt to select a specific student and returns the specified student
+		//Allowing users to choose the student information they would like to know
+		do {
+			
+			try {
+				
+				//Getting user's input about student data
+				System.out.println("Which student would you like to learn more about? (Enter a number 1-5):");
+			    studentPick = scan.nextInt();
+			
+			}finally{checkNum();}
+			
+			
+			
+		    scan.nextLine();
+			System.out.println("\n");
+			
+		    //System.out.println("Please chose a number between 0-4");
+			//Display user's choice and accepting user's input
+			do{
+				if(studentPick >= 0 || studentPick <= 4) {
+				
+				System.out.println("Student " + studentPick +  " is " + studentN[studentPick - 1] + 
+					 ".  What would you like to know about " + studentN[studentPick - 1] + "?" + "  "
+					 		+ "\"City\" or \"Grade\"?" );
+				
+				studentInfo = scan.nextLine();
+				System.out.println("\n");
+				
+				}
+			
+			//User's choices
+			if(studentInfo.equals("city") ) {
+					
+					System.out.println(studentN[studentPick - 1] + " is from " + studentC[studentPick - 1] 
+							+ " Would you like to know more? (enter yes or no):");
+					yesNo = scan.nextLine();
+					
+					System.out.println("\n");	
+					
+				}else if(studentInfo.equalsIgnoreCase("grade")) {
+					
+					System.out.println(studentN[studentPick - 1] + " is in grade " + studentG[studentPick - 1] 
+							+ "!. Would you like to know more? (enter “yes” or “no):" );
+					yesNo = scan.nextLine();	
+					
+					System.out.println("\n");
+			
+				}
+			
+			
+		 //Loop for user's choice and input
+		 }while(yesNo.equalsIgnoreCase("yes"));	
+			
+			if(yesNo.equalsIgnoreCase("no") ) {
+				
+				System.out.println("Thanks!");
+				
+		   }
+			
+			
+		//Loop for getting user's input about student data
+		}while(yesNo.equalsIgnoreCase("yes"));
+		
+		scan.close();
+			
+	}
+		
+		
+		
+	
+	/*List or arrays containing 5 students*/
+	
+	public static void studentInput() throws StringIndexOutOfBoundsException, InputMismatchException  {
+		
+		//Scanner scan = new Scanner(System.in);
+		
+		//int  mix = scan.nextInt();
+		int  studentNum=0;
+		
+		
+		if(studentNum <= 0 || studentNum > 5) {
+			System.out.println("The number you pick is too high or too low. Choose between 1-5");
+		}
+		
+//		if(studentNum.equalsIgnoreCase("") ) {
+//			System.out.println("Mix Matched!  Please enter a number from 1-5");
+//		}
+		//return studentNum;
+		
+	}
+	
+	public static void checkNum() throws InputMismatchException  {
+		boolean isNum = true;
+		
+		if(isNum = false) {
+			System.out.println("Error: That is not a number.");
+		}
+		//return studentNum;
+		
+	}
+	
+	
+	//Student names array method
+	public static String[] studentName() {
+		
+		String [] students = {"Jackie Brown", "James Smith", "Paul Dunbar", "Chuck Berry", "Amy Poehler"};
+		return students;
+	}
+	
+	
+	//Student cites array method
+	public static String[] studentCity() {
+		
+		String [] studentCity = {"Detroit", "Southfield", "Dearborn", "Tayler", "Lavonia"};
+		return studentCity;
+	}
+	
+	
+	//Student grades array method
+	public static int[] studentGrade() {
+		int [] studentGrade = {2, 3, 4, 5, 6 };
+		return studentGrade;
+	}
+}
+	
+	
